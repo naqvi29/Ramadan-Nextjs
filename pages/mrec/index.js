@@ -1,4 +1,4 @@
-import { getPrayerTimes } from '../../utils/prayerTimes';
+import { getPrayerTimes2 } from '../../utils/prayerTimes';
 import Ramzan from '../../components/Ramzan';
 // import '../../styles/global.css'
 // import styles from '../../styles/zam.css';
@@ -15,27 +15,34 @@ export async function getServerSideProps() {
     const geoData = await response.json();
 
     // Extract latitude, longitude, timezone, and country with fallback values
-    const latitude = geoData.latitude || 'Unknown';
-    const longitude = geoData.longitude || 'Unknown';
-    const timezone = geoData.timezone || 'Unknown';
-    const country = geoData.country || 'Unknown';
+    const timezone = geoData.timezone;
+    const city = timezone.split("/")[1];
 
     // Get prayer times based on user's location if latitude and longitude are valid
     let sehriTime = 'N/A';
     let iftariTime = 'N/A';
+    let sehriTimeJafria = 'N/A';
+    let iftariTimeJafria = 'N/A';
+    let date = 'N/A';
 
-    if (latitude !== 'Unknown' && longitude !== 'Unknown') {
-      const times = getPrayerTimes(latitude, longitude);
-      sehriTime = times.sehriTime;
-      iftariTime = times.iftariTime;
+    if (city) {
+      const times = await getPrayerTimes2(city);
+      sehriTime = times.updatedSehriTime;
+      iftariTime = times.updatedIftariTime;
+      sehriTimeJafria = times.sehriTimejafria;
+      iftariTimeJafria = times.iftariTimeJafria;
+      date = times.formattedDate;
     }
 
     return {
       props: {
         sehriTime,
         iftariTime,
+        sehriTimeJafria,
+        iftariTimeJafria,
         timezone,
-        country,
+        city,
+        date,
       },
     };
   } catch (error) {
@@ -46,21 +53,27 @@ export async function getServerSideProps() {
       props: {
         sehriTime: 'N/A',
         iftariTime: 'N/A',
+        sehriTimeJafria: 'N/A',
+        iftariTimeJafria: 'N/A',
         timezone: 'Unknown',
-        country: 'Unknown',
+        city: 'Unknown',
+        date: "N/A"
       },
     };
   }
 }
 
-export default function Home({ sehriTime, iftariTime, timezone, country }) {
+export default function Home({ sehriTime, iftariTime, sehriTimeJafria, iftariTimeJafria, timezone, city, date }) {
   return (
     <div>
       <Ramzan
         sehriTime={sehriTime}
         iftariTime={iftariTime}
+        sehriTimeJafria = {sehriTimeJafria}
+        iftariTimeJafria={iftariTimeJafria}
         timezone={timezone}
-        country={country}
+        city={city}
+        date={date}
       />
     </div>
   );

@@ -1,10 +1,9 @@
-
 import React from 'react';
 import '../styles/Home.module.css'; // Import the CSS module
 
-export default function Ramzan({ sehriTime, iftariTime }) {
+export default function Ramzan({ sehriTime, iftariTime,sehriTimeJafria, iftariTimeJafria, city, date }) {
   return (
-    <div className="bgRamadan d-flex flex-column align-items-center justify-content-center text-white">
+    <div className="bgRamadan d-flex flex-column align-items-center justify-content-between text-white">
       <div className="text-center">
         <img
           src="/logo.png"
@@ -12,31 +11,45 @@ export default function Ramzan({ sehriTime, iftariTime }) {
           alt="Logo"
         />
       </div>
-      <div className="text-center mt-2">
-        <h5 className="mb-1">KARACHI</h5>
-        <p className="mb-0">1ST RAMAZAN 1446H</p>
+      <div className="text-center mt-2 font-shadow">
+        <h5 className="mb-1">{city}</h5>
+        {/* <p className="mb-0 small">1ST RAMAZAN 1446H</p> */}
+        <p className="mb-0 small">{date}</p>
       </div>
-      <div className="d-flex flex-column align-items-center mt-3 w-100">
-        <div className="d-flex justify-content-between w-75">
-          <span>Iftari</span>
-          <span>Hanafi: {iftariTime} PM</span>
-        </div>
-        <div className="d-flex justify-content-between w-75">
-          <span></span>
-          <span>Jafri: {iftariTime} PM</span>
-        </div>
+
+      {/* Iftari Table */}
+      <div className="d-flex flex-column align-items-center mt-3 w-100 sm-font">
+        <table
+          className="table w-75 text-center"
+          style={{ borderSpacing: '4px', borderCollapse: 'separate' }} // Added spacing here
+        >
+          <tbody>
+            <tr> 
+              <td className="text-left md-font align-middle border-0 head-color" rowSpan="2">Iftari</td>
+              <td className="span-bg font-heading">HANAFI</td>
+              <td className="span-bg time">{iftariTime} </td>
+            </tr>
+            <tr>
+              <td className="span-bg font-heading">JAFRI</td>
+              <td className="span-bg time">{iftariTimeJafria}</td>
+            </tr>
+            <tr className="spacing-row"></tr>
+            {/* Sehri Table */}
+            
+            <tr>
+              <td rowSpan="2" className="text-left md-font align-middle border-0 head-color">Sehri</td>
+              <td className="span-bg font-heading">HANAFI</td>
+              <td className="span-bg time">{sehriTime}</td>
+            </tr>
+            <tr>
+              <td className="span-bg font-heading">JAFRI</td>
+              <td className="span-bg time">{sehriTimeJafria}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div className="d-flex flex-column align-items-center mt-2 w-100">
-        <div className="d-flex justify-content-between w-75">
-          <span>Sehri</span>
-          <span>Hanafi: {sehriTime} AM</span>
-        </div>
-        <div className="d-flex justify-content-between w-75">
-          <span></span>
-          <span>Jafri: {sehriTime} AM</span>
-        </div>
-      </div>
+
+      <p className="p-note">Disclaimer: Sehri and Iftar times may vary slightly (±1 min).</p>
     </div>
   );
 }
-

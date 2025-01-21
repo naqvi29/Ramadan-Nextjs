@@ -1,33 +1,154 @@
 .bgRamadan {
-    background-image: url('/bg/600-x-500.jpg') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 300px;
-    height: 250px;
-  }
-
-.color-invert{
-    filter: invert(1);
+  background-image: url('/bg/600-x-500.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px; /* Add padding for inner spacing */
 }
-  
+
+.color-invert {
+  filter: invert(1);
+}
+
+.text-center {
+  text-align: center;
+  color: white; /* Ensure text remains readable */
+}
+
+.text-center h5, .text-center p {
+  margin: 0;
+  padding: 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.mt-2 {
+  margin-top: 10px;
+}
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.span-bg {
+  background: rgba(255, 255, 255, 0.8) !important; /* Slight transparency for a modern look */
+  color: black;
+  padding: 0px 08px !important; /* Added padding for spacing inside the boxes */
+  border-radius: 15px;
+  font-weight: bold;
+  margin-left: 10px !important; 
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.text-white {
+  color: white;
+}
+
+.sm-font{
+  font-size:0.6rem !important
+}
+.md-font{
+  font-size:0.8rem !important
+}
+
+.font-heading{
+  color:rgb(2, 46, 105) !important;
+  font-weight: 400;
+}
+
+.sehri-iftari-label {
+  font-size: 0.9rem; /* Larger font for Sehri and Iftari labels */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px; /* Adds spacing between label and rows */
+}
+
+.font-shadow{
+  text-shadow: 2px 3px 10px #000;
+  color: #fefce6 !important;
+
+}
+
 /* global.css */
 @font-face {
-    font-family: 'Lemon Milk';
-    src: url('/fonts/LEMONMILK-Bold.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Lemon Milk';
-    src: url('/fonts/LEMONMILK-Medium.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  body {
-    font-family: 'Lemon Milk', sans-serif !important;
-  }
+  font-family: 'Lemon Milk';
+  src: url('/fonts/LEMONMILK-Bold.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
 
-  
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url('/fonts/LEMONMILK-Medium.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Lemon Milk', sans-serif !important;
+}
+
+.centered-span {
+  display: flex;
+  align-items: center;
+}
+
+td {
+  background: transparent !important;
+  border: 0;
+  margin: 3px 0px !important;
+}
+
+.table-cell-spacing {
+  margin: 3px !important;
+}
+
+.head-color{
+  color: #ffdb9d !important;
+}
+
+.time{
+  font-weight: 400;
+  color: #2b2b29 !important;
+}
+
+.spacing-row {
+  height: 10px; /* Adjust the height as needed */
+}
+
+.p-note{
+  font-size: 0.4rem;
+    font-family: 'Inter';
+}
