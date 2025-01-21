@@ -6,6 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@internationalized/date": "^3.7.0",
+    "@next/font": "^14.2.15",
+    "adhan": "^4.4.3",
+    "bootstrap": "^5.3.3",
+    "hijri-date": "^0.2.2",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0"

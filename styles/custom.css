@@ -1,0 +1,33 @@
+.bgRamadan {
+    background-image: url('/bg/600-x-500.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 250px;
+  }
+
+.color-invert{
+    filter: invert(1);
+}
+  
+/* global.css */
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('/fonts/LEMONMILK-Bold.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lemon Milk';
+    src: url('/fonts/LEMONMILK-Medium.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Lemon Milk', sans-serif !important;
+  }
+
+  
