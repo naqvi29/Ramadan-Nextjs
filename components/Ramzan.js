@@ -1,7 +1,22 @@
 import React from 'react';
 import '../styles/Home.module.css'; // Import the CSS module
 
-export default function Ramzan({ sehriTime, iftariTime,sehriTimeJafria, iftariTimeJafria, city, date }) {
+export default function Ramzan({ loading, sehriTime, iftariTime,sehriTimeJafria, iftariTimeJafria, city, date }) {
+
+  if (loading) {
+    return (
+      <div className="bgRamadan d-flex flex-column align-items-center justify-content-center text-white">
+        <div className="text-center">
+          <div className="spinner-border text-light" style={{ width: '3rem', height: '3rem' }} role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <p className="mt-3">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+
   return (
     <div className="bgRamadan d-flex flex-column align-items-center justify-content-between text-white">
       <div className="text-center">

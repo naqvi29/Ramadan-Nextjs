@@ -1,80 +1,79 @@
-import { getPrayerTimes2 } from '../../utils/prayerTimes';
+import { useState, useEffect } from 'react';
 import Ramzan from '../../components/Ramzan';
-// import '../../styles/global.css'
-// import styles from '../../styles/zam.css';
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/custom.css';
 
+export default function Home() {
+  const [locationData, setLocationData] = useState({
+    sehriTime: 'N/A',
+    iftariTime: 'N/A',
+    sehriTimeJafria: 'N/A',
+    iftariTimeJafria: 'N/A',
+    timezone: 'Loading',
+    city: 'Loading',
+    date: '...',
+  });
+  const [isLoading, setIsLoading] = useState(true);
 
-export async function getServerSideProps() {
-  try {
-    // Fetch geolocation data
-    const response = await fetch('https://get.geojs.io/v1/ip/geo.json');
-    const geoData = await response.json();
+  useEffect(() => {
+    const fetchLocationAndTimes = async () => {
+      try {
+        let city = 'Karachi'; // Default city
 
-    // Extract latitude, longitude, timezone, and country with fallback values
-    const timezone = geoData.timezone;
-    const city = timezone.split("/")[1];
+        if (navigator.geolocation) {
+          await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(
+              async (position) => {
+                const { latitude, longitude } = position.coords;
 
-    // Get prayer times based on user's location if latitude and longitude are valid
-    let sehriTime = 'N/A';
-    let iftariTime = 'N/A';
-    let sehriTimeJafria = 'N/A';
-    let iftariTimeJafria = 'N/A';
-    let date = 'N/A';
+                const geoResponse = await fetch(`https://get.geojs.io/v1/ip/geo.json`);
+                const geoData = await geoResponse.json();
 
-    if (city) {
-      const times = await getPrayerTimes2(city);
-      sehriTime = times.updatedSehriTime;
-      iftariTime = times.updatedIftariTime;
-      sehriTimeJafria = times.sehriTimejafria;
-      iftariTimeJafria = times.iftariTimeJafria;
-      date = times.formattedDate;
-    }
+                const timezone = geoData.timezone;
+                city = timezone.split('/')[1] || 'Karachi'; // Fallback to Karachi if city is not found
+                resolve();
+              },
+              (error) => {
+                console.error('Error fetching geolocation:', error);
+                resolve(); // Proceed with default city
+              }
+            );
+          });
+        }
 
-    return {
-      props: {
-        sehriTime,
-        iftariTime,
-        sehriTimeJafria,
-        iftariTimeJafria,
-        timezone,
-        city,
-        date,
-      },
+        // Fetch prayer times based on city (default or determined)
+        const times = await fetch('/api/prayerTimes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ city }),
+        }).then((res) => res.json());
+
+        setLocationData({
+          sehriTime: times.updatedSehriTime || 'N/A',
+          iftariTime: times.updatedIftariTime || 'N/A',
+          sehriTimeJafria: times.sehriTimejafria || 'N/A',
+          iftariTimeJafria: times.iftariTimeJafria || 'N/A',
+          timezone: times.timezone || 'Asia/Karachi',
+          city,
+          date: times.formattedDate || 'N/A',
+        });
+      } catch (error) {
+        console.error('Error fetching prayer times:', error);
+        setLocationData((prev) => ({
+          ...prev,
+          city: 'Karachi', // Fallback to Karachi
+        }));
+      } finally {
+        setIsLoading(false);
+      }
     };
-  } catch (error) {
-    console.error('Error fetching geolocation data:', error);
 
-    // Provide fallback data if API fails
-    return {
-      props: {
-        sehriTime: 'N/A',
-        iftariTime: 'N/A',
-        sehriTimeJafria: 'N/A',
-        iftariTimeJafria: 'N/A',
-        timezone: 'Unknown',
-        city: 'Unknown',
-        date: "N/A"
-      },
-    };
-  }
-}
+    fetchLocationAndTimes();
+  }, []);
 
-export default function Home({ sehriTime, iftariTime, sehriTimeJafria, iftariTimeJafria, timezone, city, date }) {
   return (
     <div>
-      <Ramzan
-        sehriTime={sehriTime}
-        iftariTime={iftariTime}
-        sehriTimeJafria = {sehriTimeJafria}
-        iftariTimeJafria={iftariTimeJafria}
-        timezone={timezone}
-        city={city}
-        date={date}
-      />
+      <Ramzan loading={isLoading} {...locationData} />
     </div>
   );
 }
