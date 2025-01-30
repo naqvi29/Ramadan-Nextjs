@@ -5,8 +5,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const { city } = req.body;
-      console.log("CITYYY");
-      console.log(city);
 
       if (!city) {
         return res.status(400).json({ error: 'City is required' });

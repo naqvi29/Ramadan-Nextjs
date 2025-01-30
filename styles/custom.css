@@ -1,3 +1,5 @@
+/* MREC CSS  */
+
 .bgRamadan {
   background-image: url('/bg/600-x-500.jpg'); /* Replace this with your uploaded image path */
   background-size: cover;
@@ -58,9 +60,9 @@
   background: rgba(255, 255, 255, 0.8) !important; /* Slight transparency for a modern look */
   color: black;
   padding: 0px 08px !important; /* Added padding for spacing inside the boxes */
-  border-radius: 15px;
+  border-radius: 20px;
   font-weight: bold;
-  margin-left: 10px !important; 
+  /* margin-left: 10px !important;  */
 }
 
 .img-fluid {
@@ -80,7 +82,7 @@
   font-size:0.6rem !important
 }
 .md-font{
-  font-size:0.8rem !important
+  font-size:0.7rem !important
 }
 
 .font-heading{
@@ -137,6 +139,7 @@ td {
 
 .head-color{
   color: #ffdb9d !important;
+  text-shadow: 2px 3px 10px #000;
 }
 
 .time{
@@ -149,6 +152,60 @@ td {
 }
 
 .p-note{
-  font-size: 0.4rem;
+  font-size: 0.6rem;
     font-family: 'Inter';
+}
+
+.spinner-border{
+  width: '3rem' !important;
+  height: '3rem' !important;
+  color: '#ffdb9d' !important;
+}
+.custom-text-color{
+  color: '#ffdb9d' !important;
+}
+
+/* LONG BANNER CSS  */
+
+.bgRamadanLong {
+  background-image: url('/bg/1456-x-180.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 728px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.city-font-longBanner{
+  font-size:1rem !important;
+}
+.date-font-longBanner{
+  font-size:0.6rem !important;
+}
+
+.col-one-longBanner{
+  /* padding-left: 3.5rem !important; */
+}
+.col-three-longBanner{
+  /* padding-right: 1rem !important; */
+}
+
+.sm-font-longBanner{
+  font-size:0.7rem !important
+}
+.md-font-longBanner{
+  font-size:0.8rem !important
+}
+
+.span-bg-longBanner {
+  background: rgba(255, 255, 255, 0.8) !important; /* Slight transparency for a modern look */
+  color: black;
+  padding: 0px 10px !important; /* Added padding for spacing inside the boxes */
+  border-radius: 5px;
+  font-weight: bold;
+  /* margin-left: 10px !important;  */
 }

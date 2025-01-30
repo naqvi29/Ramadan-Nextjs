@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Ramzan from '../../components/Ramzan';
+import Mrec from '../../components/Mrec';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/custom.css';
 
@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <div>
-      <Ramzan loading={isLoading} {...locationData} />
+      <Mrec loading={isLoading} {...locationData} />
     </div>
   );
 }
