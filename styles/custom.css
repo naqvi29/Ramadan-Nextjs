@@ -209,3 +209,82 @@ td {
   font-weight: bold;
   /* margin-left: 10px !important;  */
 }
+
+/* LARGE LEADERBOARD CSS  */
+
+.bgRamadanLargeLeaderboard {
+  background-image: url('/bg/970-x-90-BG.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 970px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.sm-font-largeLeaderboard{
+  font-size:1rem !important
+}
+.md-font-largeLeaderboard{
+  font-size:1.2rem !important
+}
+
+
+.date-font-largeLeaderboard{
+  font-size:0.7rem !important;
+}
+
+.city-font-largeLeaderboard{
+  font-size:1rem !important;
+}
+
+
+.sm-font-largeLeaderboard{
+  font-size:0.8rem !important
+}
+
+/* BillBoard CSS  */
+
+.bgRamadanBillBoard {
+  background-image: url('/bg/1940-x-500.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 970px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.sm-font-BillBoard{
+  font-size:1rem !important
+}
+.md-font-BillBoard{
+  font-size:1.2rem !important
+}
+
+
+.date-font-BillBoard{
+  font-size:1.2rem !important;
+}
+
+.city-font-BillBoard{
+  font-size:1.7rem !important;
+}
+
+
+.logo-billboard{
+  width: 30%;
+}
+
+.p-note-billboard{
+  font-size: 0.7rem;
+    font-family: 'Inter';
+}
