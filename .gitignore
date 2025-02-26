@@ -27,6 +27,9 @@ yarn-error.log*
 
 #zip files
 .zip*
+zip*
+zip 
+.zip
 
 # local env files
 .env.local
