@@ -33,16 +33,16 @@ export default function LongBanner2({
     <div className="bgRamadanLargeLeaderboard d-flex flex-column  text-white">
       <div class="container">
         <div class="row px-5">
-          <div class="col-3 d-flex flex-column align-items-center ">
-            <div className="text-center w-75 pb-1">
+          <div class="col-3 d-flex flex-column align-items-center "> 
+            <div className="text-center pb-1">
               <img
                 src="/logo.png"
-                className="img-fluid color-invert"
+                className="img-fluid color-invert logo-large-leaderboard"
                 alt="Logo"
               />
             </div>
             <div className="text-center font-shadow pt-1">
-              <h5 className="mb-1 city-font-largeLeaderboard">{city}</h5>
+              <h5 className=" city-font-largeLeaderboard">{city}</h5>
               <p className="mb-0 small date-font-largeLeaderboard">{date}</p>
             </div>
           </div>

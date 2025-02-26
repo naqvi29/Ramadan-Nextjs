@@ -13,6 +13,19 @@
   justify-content: space-evenly;
   padding: 10px; /* Add padding for inner spacing */
 }
+.bgRamadanK {
+  background-image: url('/bg/k&ns/600x500.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px; /* Add padding for inner spacing */
+}
 
 .color-invert {
   filter: invert(1);
@@ -64,6 +77,14 @@
   font-weight: bold;
   /* margin-left: 10px !important;  */
 }
+.span-bgK {
+  background: white !important; /* Slight transparency for a modern look */
+  color: #e01f27;
+  padding: 0px 08px !important; /* Added padding for spacing inside the boxes */
+  border-radius: 20px;
+  font-weight: bold;
+  /* margin-left: 10px !important;  */
+}
 
 .img-fluid {
   max-width: 100%;
@@ -89,6 +110,10 @@
   color:rgb(2, 46, 105) !important;
   font-weight: 400;
 }
+.font-headingK{
+  color:#e01f27 !important;
+  font-weight: 400;
+}
 
 .sehri-iftari-label {
   font-size: 0.9rem; /* Larger font for Sehri and Iftari labels */
@@ -100,6 +125,11 @@
 .font-shadow{
   text-shadow: 2px 3px 10px #000;
   color: #fefce6 !important;
+
+}
+.font-shadowK{
+  text-shadow: 2px 3px 10px #000;
+  color:white !important;
 
 }
 
@@ -141,10 +171,19 @@ td {
   color: #ffdb9d !important;
   text-shadow: 2px 3px 10px #000;
 }
+.head-colorK{
+  color: white !important;
+  text-shadow: 2px 3px 10px #000;
+}
 
 .time{
   font-weight: 400;
   color: #2b2b29 !important;
+}
+
+.timeK{
+  font-weight: 400;
+  color: #e01f27 !important;
 }
 
 .spacing-row {
@@ -165,7 +204,15 @@ td {
   color: '#ffdb9d' !important;
 }
 
-/* LONG BANNER CSS  */
+.logo-mrec{
+  width: 68%;
+}
+
+.logo-mrecK{
+  width: 20%;
+}
+
+/* LEADERBOARD CSS  */
 
 .bgRamadanLong {
   background-image: url('/bg/1456-x-180.jpg'); /* Replace this with your uploaded image path */
@@ -209,6 +256,9 @@ td {
   font-weight: bold;
   /* margin-left: 10px !important;  */
 }
+.logo-leaderboard{
+  width: 80%;
+}
 
 /* LARGE LEADERBOARD CSS  */
 
@@ -245,6 +295,11 @@ td {
 
 .sm-font-largeLeaderboard{
   font-size:0.8rem !important
+}
+
+
+.logo-large-leaderboard{
+  width: 80%;
 }
 
 /* BillBoard CSS  */

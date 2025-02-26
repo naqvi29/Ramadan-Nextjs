@@ -22,7 +22,7 @@ export default function Mrec({ loading, sehriTime, iftariTime,sehriTimeJafria, i
       <div className="text-center pb-2">
         <img
           src="/logo.png"
-          className="img-fluid color-invert w-50"
+          className="img-fluid color-invert logo-mrec"
           alt="Logo"
         />
       </div>
