@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Mrec from '../../components/Mrec';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/custom.css';
+// import 'bootstrap/dist/css/custom.css';
 
 export default function Home() {
   const [locationData, setLocationData] = useState({
