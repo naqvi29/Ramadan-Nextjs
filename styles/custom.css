@@ -24,7 +24,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 10px; /* Add padding for inner spacing */
+  padding: 5px 30px; 
+  /* padding-top:5px; */
+  /* padding-bottom:5px; */
 }
 
 .color-invert {
@@ -128,7 +130,7 @@
 
 }
 .font-shadowK{
-  text-shadow: 2px 3px 10px #000;
+  /* text-shadow: 2px 3px 10px #000; */
   color:white !important;
 
 }
@@ -173,7 +175,7 @@ td {
 }
 .head-colorK{
   color: white !important;
-  text-shadow: 2px 3px 10px #000;
+  /* text-shadow: 2px 3px 10px #000; */
 }
 
 .time{
@@ -209,7 +211,7 @@ td {
 }
 
 .logo-mrecK{
-  width: 20%;
+  width: 35%;
 }
 
 /* LEADERBOARD CSS  */
