@@ -28,6 +28,21 @@
   /* padding-top:5px; */
   /* padding-bottom:5px; */
 }
+.bgRamadanG {
+  background-image: url('/bg/gfs/600x500.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px 30px; 
+  /* padding-top:5px; */
+  /* padding-bottom:5px; */
+}
 
 .color-invert {
   filter: invert(1);
@@ -344,4 +359,8 @@ td {
 .p-note-billboard{
   font-size: 0.7rem;
     font-family: 'Inter';
+}
+
+.custom-gfs-margin{
+  margin-top:3.7rem;
 }
