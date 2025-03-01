@@ -2,6 +2,7 @@
 import { getPrayerTimes2 } from '../../utils/prayerTimes';
 
 export default async function handler(req, res) {
+
   if (req.method === 'POST') {
     try {
       const { city } = req.body;
