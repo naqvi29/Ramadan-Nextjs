@@ -33,19 +33,19 @@ export default function LeaderboardGFS({
     <div className="bgRamadanLBFGS d-flex flex-column text-white">
   <div className="container">
     <div className="row px-5">
-      <div className="col-4 px-2">
+      <div className="col-3 px-2">
         <div className="row d-flex flex-column align-items-center justify-content-center">
           <div className="text-center">
             <img
               src="/bg/gfs/logoGFS.png"
-              className="img-fluid logo-leaderboard"
-              width="38%"
+              className="img-fluid logo-leaderboard mt-1"
+              
               alt="Logo"
             />
           </div>
         </div>
       </div>
-      <div className="col-8">
+      <div className="col-9">
         <div className="text-center font-shadow mt-2">
           <h5 className="city-font-longBanner">{city} <span> ({date})</span></h5>
           {/* <p className="small date-font-longBanner"></p> */}
@@ -68,11 +68,12 @@ export default function LeaderboardGFS({
                       Iftari
                     </td>
                     <td className="span-bg-longBanner font-heading">HANAFI</td>
-                    <td className="span-bg-longBanner time">{iftariTime}</td>
+                    <td className="span-bg-longBanner time">{iftariTime.replace(/[\s.]/g, '')}</td>
+
                   </tr>
                   <tr className="text-center">
                     <td className="span-bg-longBanner font-heading">JAFRI</td>
-                    <td className="span-bg-longBanner time">{iftariTimeJafria}</td>
+                    <td className="span-bg-longBanner time">{iftariTimeJafria.replace(/[\s.]/g, '')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -94,11 +95,11 @@ export default function LeaderboardGFS({
                       Sehri
                     </td>
                     <td className="span-bg-longBanner font-heading">HANAFI</td>
-                    <td className="span-bg-longBanner time">{sehriTime}</td>
+                    <td className="span-bg-longBanner time">{sehriTime.replace(/[\s.]/g, '')}</td>
                   </tr>
                   <tr className="text-center">
                     <td className="span-bg-longBanner font-heading">JAFRI</td>
-                    <td className="span-bg-longBanner time">{sehriTimeJafria}</td>
+                    <td className="span-bg-longBanner time">{sehriTimeJafria.replace(/[\s.]/g, '')}</td>
                   </tr>
                 </tbody>
               </table>
