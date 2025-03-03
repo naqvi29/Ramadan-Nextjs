@@ -244,6 +244,19 @@ td {
   justify-content: space-evenly;
 }
 
+.bgRamadanLBFGS {
+  background-image: url('/bg/gfs/LBGFS.jpg'); /* Replace this with your uploaded image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 728px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .city-font-longBanner{
   font-size:1rem !important;
 }
@@ -274,9 +287,12 @@ td {
   /* margin-left: 10px !important;  */
 }
 .logo-leaderboard{
-  width: 80%;
+  width: 50%;
 }
 
+h5.city-font-longBanner span {
+  font-size: 13px;
+}
 /* LARGE LEADERBOARD CSS  */
 
 .bgRamadanLargeLeaderboard {

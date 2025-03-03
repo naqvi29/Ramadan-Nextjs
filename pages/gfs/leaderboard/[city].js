@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/css/custom.css';
+import { useRouter } from 'next/router';
 import LeaderboardGFS from './../../../components/gfs/Leaderboard';
 
 export default function Home() {
+  const router = useRouter();
+  const { city: routeCity } = router.query;
+
   const [locationData, setLocationData] = useState({
     sehriTime: 'N/A',
     iftariTime: 'N/A',
@@ -16,19 +19,18 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!router.isReady) return; // Wait until the router is ready
+
     const fetchLocationAndTimes = async () => {
       try {
-        let city = 'Karachi'; // Default city
+        let city = routeCity || 'Karachi';
 
-        if (navigator.geolocation) {
-          await new Promise((resolve, reject) => {
+        if (navigator.geolocation && !routeCity) {
+          await new Promise((resolve) => {
             navigator.geolocation.getCurrentPosition(
-              async (position) => {
-                const { latitude, longitude } = position.coords;
-
-                const geoResponse = await fetch(`https://get.geojs.io/v1/ip/geo.json`);
+              async () => {
+                const geoResponse = await fetch('https://get.geojs.io/v1/ip/geo.json');
                 const geoData = await geoResponse.json();
-
                 const timezone = geoData.timezone;
                 city = timezone.split('/')[1] || 'Karachi'; // Fallback to Karachi if city is not found
                 resolve();
@@ -41,12 +43,13 @@ export default function Home() {
           });
         }
 
-        // Fetch prayer times based on city (default or determined)
-        const times = await fetch('/api/prayerTimes', {
+        // Fetch prayer times based on the determined city
+        const response = await fetch('/api/prayerTimes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ city }),
-        }).then((res) => res.json());
+        });
+        const times = await response.json();
 
         setLocationData({
           sehriTime: times.updatedSehriTime || 'N/A',
@@ -54,7 +57,7 @@ export default function Home() {
           sehriTimeJafria: times.sehriTimejafria || 'N/A',
           iftariTimeJafria: times.iftariTimeJafria || 'N/A',
           timezone: times.timezone || 'Asia/Karachi',
-          city,
+          city, // Using computed city value
           date: times.formattedDate || 'N/A',
         });
       } catch (error) {
@@ -69,7 +72,7 @@ export default function Home() {
     };
 
     fetchLocationAndTimes();
-  }, []);
+  }, [router.isReady, routeCity]);
 
   return (
     <div>
