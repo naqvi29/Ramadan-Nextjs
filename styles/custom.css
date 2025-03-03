@@ -289,6 +289,9 @@ td {
 .logo-leaderboard{
   width: 50%;
 }
+.logo-gfs-leaderboard{
+  width: 25%;
+}
 
 h5.city-font-longBanner span {
   font-size: 13px;
