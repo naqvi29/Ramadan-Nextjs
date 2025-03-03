@@ -383,3 +383,24 @@ h5.city-font-longBanner span {
 .custom-gfs-margin{
   margin-top:4rem;
 }
+
+
+@media screen and (max-width: 767px) and (min-width: 566px) {
+
+  
+.padding-c5{
+  padding: 0px 0px !important;
+}
+
+img.logo-leaderboard {
+  width: 85% !important;
+  text-align: left !important;
+
+  padding: 10px;
+}
+}
+
+
+.padding-c5{
+  padding: 0px 44px;
+}

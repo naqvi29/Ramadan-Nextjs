@@ -32,13 +32,13 @@ export default function LeaderboardGFS({
   return (
     <div className="bgRamadanLBFGS d-flex flex-column text-white">
   <div className="container">
-    <div className="row px-5">
+    <div className="row padding-c5">
       <div className="col-3 px-2">
         <div className="row d-flex flex-column align-items-center justify-content-center">
           <div className="text-center">
             <img
               src="/bg/gfs/logoGFS.png"
-              className="img-fluid logo-leaderboard mt-1"
+              className=" logo-leaderboard mt-1"
               
               alt="Logo"
             />
